@@ -49,16 +49,6 @@ module CarrierWaveDirect
           super
         end
 
-        def #{column}_key
-          super
-        end
-        
-        def #{column}_key=(k)
-          column = _mounter(:#{column}).serialization_column
-          send(:"\#{column}_will_change!") if k != key
-          super
-        end
-
         def filename_valid?
           if has_#{column}_upload?
             self.skip_is_attached_validations = true
